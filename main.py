@@ -1,4 +1,3 @@
-from email.policy import HTTP
 from fastapi import FastAPI, Depends
 import models              
 from database import engine
