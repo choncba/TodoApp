@@ -1,0 +1,50 @@
+{% include 'layout.html' %}
+
+<div class="container">
+    <div class="card text-center">
+        <div class="card-header">
+            Tus Tareas
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Lista de Tareas</h5>
+            <p class="card-text">Información sobre tareas que deben ser realizadas</p>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Info</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for todo in todos %}
+                    <tr class="pointer">
+                        <td>{{loop.index}}</td>
+                        <td>{{todo.title}}</td>
+                        <td>
+                            {% if todo.complete == True %}
+                            <button type="button" class="btn btn-success" 
+                            onclick="window.location.href='complete/{{todo.id}}'">
+                            Completo
+                            </button>
+                            {% else %}
+                            <button type="button" class="btn btn-warning" 
+                            onclick="window.location.href='complete/{{todo.id}}'">
+                            Pendiente
+                            </button>
+                            {% endif %}
+                            <button onclick="window.location.href='edit-todo/{{todo.id}}'" 
+                                type="button" 
+                                class="btn btn-info">
+                                Editar
+                            </button>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <a href="add-todo" class="btn btn-primary">Agregar Tarea</a>
+        </div>
+    </div>
+</div>
+    

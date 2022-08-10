@@ -1,0 +1,19 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+fastapi = {extras = ["all"], version = "*"}
+sqlalchemy = "*"
+passlib = {extras = ["bcrypt"], version = "*"}
+python-jose = {extras = ["cryptography"], version = "*"}
+psycopg2-binary = "*"
+pymysql = "*"
+alembic = "*"
+aiofiles = "*"
+jinja2 = "*"
+
+[dev-packages]
+
+[requires]

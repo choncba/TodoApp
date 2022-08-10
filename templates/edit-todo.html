@@ -1,0 +1,36 @@
+{% include 'layout.html' %}
+
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            Editar Tarea
+        </div>
+        <div class="card-body">
+            <form method="POST">
+                <div class="form-group">
+                    <label>Título</label>
+                    <input type="text" class="form-control" name="title" value="{{todo.title}}" required>
+                </div>
+                <div class="form-group">
+                    <label>Descripción</label>
+                    <textarea name="description" rows="3" class="form-control" required>{{todo.description}}</textarea>
+                </div>
+                <div class="form-group">
+                    <label>Prioridad</label>
+                    <select name="priority" class="form-control">
+                        {% for i in range(1,6) %}
+                            <option 
+                            {% if todo.priority == i %} 
+                                selected="selected" 
+                            {% endif %}>{{i}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Guardar</button>
+                <button type="button" class="btn btn-danger" 
+                onclick="window.location.href='/todos/delete/{{todo.id}}'">Borrar</button>
+            </form>
+        </div>
+    </div>
+</div>
+    
