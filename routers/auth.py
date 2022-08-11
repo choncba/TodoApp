@@ -176,8 +176,8 @@ async def register_user(request: Request,
                         ):
 
     # Valido que el usuario no esté ya registrado, y que el password haya sido bien ingresado
-    validation1 = db.query(models.Users).filter(models.Users.username).first()
-    validation2 = db.query(models.Users).filter(models.Users.email).first()
+    validation1 = db.query(models.Users).filter(models.Users.username == username).first()
+    validation2 = db.query(models.Users).filter(models.Users.email == email).first()
     validation3 = True if password == password2 else None
 
     if validation1 is not None or validation2 is not None or validation3 is None:
