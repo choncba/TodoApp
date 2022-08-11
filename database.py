@@ -10,11 +10,8 @@ from sqlalchemy.ext.declarative import declarative_base
 # engine = create_engine(SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False})
 
 # Para usar Postgres del Add-on de Heroku con sus credenciales, saco las mismas de las variables de entorno
+# Corrijo la URL de Heroku para que lo tome bien sqlalchemy
 SQLALCHEMY_DATABASE_URL = os.environ.get("DATABASE_URL").replace("postgres://", "postgresql://", 1)
-
-# Corrijo la URL de Heroku para que lo tome bien
-# if SQLALCHEMY_DATABASE_URL.startswith("postgres://"):
-#     SQLALCHEMY_DATABASE_URL.replace("postgres://", "postgresql://", 1)
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 
